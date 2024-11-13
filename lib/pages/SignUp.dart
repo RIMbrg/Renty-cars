@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter/rendering.dart';
@@ -5,16 +6,16 @@ import 'package:flutter/widgets.dart';
 import 'package:renty_cars/widgets/ButtonAuth.dart';
 import 'package:renty_cars/widgets/CustomTextField.dart';
 import 'package:renty_cars/widgets/LogoAuth.dart';
-import 'package:renty_cars/widgets/SocialButton.dart';
 
-class Login extends StatefulWidget {
-  const Login({super.key});
+class SignUp extends StatefulWidget {
+  const SignUp({super.key});
 
   @override
-  State<Login> createState() => _LoginState();
+  State<SignUp> createState() => _SignUpState();
 }
 
-class _LoginState extends State<Login> {
+class _SignUpState extends State<SignUp> {
+  TextEditingController username = TextEditingController();
   TextEditingController email = TextEditingController();
   TextEditingController password = TextEditingController();
 
@@ -29,13 +30,18 @@ class _LoginState extends State<Login> {
               children: [
                 LogoAuth(),
                 const SizedBox(height: 10),
-                const Text('Login',
+                const Text('SignUp',
                     style:
                         TextStyle(fontWeight: FontWeight.bold, fontSize: 30)),
                 const SizedBox(height: 10),
-                const Text('Login to continue using the app',
+                const Text('Enter your personal informations',
                     style: TextStyle(color: Colors.grey)),
                 const SizedBox(height: 20),
+                CustomTextField(
+                    fieldname: 'Username',
+                    hinttext: "Enter your username",
+                    mycontroller: username),
+                const SizedBox(height: 10),
                 CustomTextField(
                     fieldname: 'Email',
                     hinttext: "Enter your Email",
@@ -56,37 +62,44 @@ class _LoginState extends State<Login> {
               ],
             ),
             ButtonAuth(
-              buttontext: 'Login',
-              onpressed: () {},
-            ),
-            const SizedBox(height: 20),
-            const Text(
-              'Or Login with',
-              textAlign: TextAlign.center,
-            ),
-            const SizedBox(height: 20),
-            const Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                SocialButton(imagepath: 'lib/images/google.png'),
-                SocialButton(imagepath: 'lib/images/facebook.png'),
-              ],
+              buttontext: 'SignUp',
+              onpressed: () async {
+                try {
+                  final credential = await FirebaseAuth.instance
+                      .createUserWithEmailAndPassword(
+                    email: email.text,
+                    password: password.text,
+                  );
+                  Navigator.of(context).pushReplacementNamed("home");
+                } on FirebaseAuthException catch (e) {
+                  if (e.code == 'weak-password') {
+                    print('The password provided is too weak.');
+                  } else if (e.code == 'email-already-in-use') {
+                    print('The account already exists for that email.');
+                  }
+                } catch (e) {
+                  print(e);
+                }
+              },
             ),
             const SizedBox(height: 50),
             InkWell(
               onTap: () {
-                Navigator.of(context).pushReplacementNamed("signup");
+                Navigator.of(context).pushNamed("login");
               },
               child: const Text.rich(
                 TextSpan(children: [
-                  TextSpan(text: "Don't have an account?"),
+                  TextSpan(text: "Have an account?"),
                   TextSpan(
-                      text: " Sign up",
+                      text: " Login",
                       style: TextStyle(color: Color(0xFF2972FF)))
                 ]),
                 textAlign: TextAlign.center,
               ),
             ),
+            const SizedBox(height: 20),
+            const SizedBox(height: 20),
+            const SizedBox(height: 50),
           ])),
     );
   }
