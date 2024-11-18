@@ -14,8 +14,8 @@ class NavBarPage extends StatefulWidget {
 class _NavBarPageState extends State<NavBarPage> {
   @override
   void initState() {
-    pageList.add(Home());
-    // pageList.add(FavoritePage());
+    pageList.add(SearchScreen());
+    // pageList.add(BookingsScreen());
     // pageList.add(ProfilePage());
     super.initState();
   }

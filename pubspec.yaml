@@ -42,6 +42,12 @@ dependencies:
   firebase_auth: ^4.17.8
   google_sign_in: ^6.2.1
   url_launcher: ^6.3.0
+  google_maps_webservice: ^0.0.20-nullsafety.5
+  intl: ^0.19.0
+  http: ^0.13.6
+  webservice: ^0.0.6
+  flutter_google_places: ^0.3.0
+  cached_network_image: ^3.3.1
 
 dev_dependencies:
   flutter_test:

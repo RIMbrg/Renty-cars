@@ -1,15 +1,11 @@
-// ignore_for_file: library_private_types_in_public_api, unnecessary_new, prefer_const_constructors, non_constant_identifier_names, avoid_print, no_leading_underscores_for_local_identifiers, use_key_in_widget_constructors, unused_field, use_build_context_synchronously
+// ignore_for_file: library_private_types_in_public_api, unnecessary_new, prefer_const_constructors, non_constant_identifier_names, avoid_print, no_leading_underscores_for_local_identifiers, use_key_in_widget_constructors, unused_field
 
 
 import 'dart:io';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_google_places/flutter_google_places.dart';
-
 import 'package:google_maps_webservice/places.dart';
-
-
 import 'package:intl/intl.dart';
 import 'package:renty_cars/pages/searchresult.dart';
 import 'package:renty_cars/utilities/constants.dart';
@@ -39,62 +35,33 @@ class _SearchScreenState extends State<SearchScreen> {
   late String pickupDate;
   late String returnDate;
 
-
   //Location Autocomplete
-  static const kGoogleApiKey = "API_KEY"; // Remplacez par votre clé API valide
-
-Future<void> _selectLocation(BuildContext context) async {
-  try {
+  Future<void> _selectLocation(BuildContext context) async {
     Prediction? prediction = await PlacesAutocomplete.show(
-      context: context,
-      apiKey: kGoogleApiKey,
-      mode: Mode.overlay,
-      language: "fr",
-      components: [Component(Component.country, "fr")],
-    );
-
-    if (prediction == null) {
-      print("Aucune prédiction sélectionnée.");
-      return; // Stopper ici si aucune prédiction n'est choisie
-    }
-
-    print("Prédiction : ${prediction.description}");
+        context: context,
+        apiKey: kGoogleMapsKey,
+        mode: Mode.fullscreen, // Mode.overlay
+        language: "en",
+        onError: (e) {
+          print(e.errorMessage);
+        });
+    locationValue.text = prediction!.description!;
     _getLatLng(prediction);
-  } catch (e) {
-    print("Erreur lors de la sélection de l'emplacement : $e");
   }
-}
-
 
   //Get geo coordinated from places API prediction
- void _getLatLng(Prediction prediction) async {
-  GoogleMapsPlaces _places = GoogleMapsPlaces(apiKey: kGoogleApiKey);
-
-  try {
-    if (prediction.placeId == null) {
-      print("placeId est null.");
-      return;
-    }
-
+  void _getLatLng(Prediction prediction) async {
+    GoogleMapsPlaces _places =
+        new GoogleMapsPlaces(apiKey: kGoogleMapsKey); //Same API_KEY as above
     PlacesDetailsResponse detail =
         await _places.getDetailsByPlaceId(prediction.placeId!);
 
-    // Vérifiez si la géométrie et les coordonnées sont nulles
-    if (detail.result.geometry?.location == null) {
-      print("Les données géographiques sont manquantes.");
-      return;
+    if (prediction.types.contains('airport')) {
+      print('is airport');
     }
-
     latitude = detail.result.geometry!.location.lat;
     longitude = detail.result.geometry!.location.lng;
-
-    print("Coordonnées récupérées : Latitude = $latitude, Longitude = $longitude");
-  } catch (e) {
-    print("Erreur lors de la récupération des coordonnées : $e");
   }
-}
-
-
 
 
   //Show date range picker

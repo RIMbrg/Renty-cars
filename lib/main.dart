@@ -1,9 +1,15 @@
 
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, unused_import
 
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:renty_cars/pages/Home.dart';
+import 'package:renty_cars/pages/optionPage.dart';
+import 'package:renty_cars/pages/search.dart';
+import 'package:renty_cars/pages/searchresult.dart';
+import 'package:renty_cars/utilities/driver.dart';
+import 'package:renty_cars/widgets/navbar.dart';
+import 'package:renty_cars/widgets/pick-up.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
@@ -26,7 +32,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-    home: Home(),
+    home: NavBarPage(),
       );
     
     
