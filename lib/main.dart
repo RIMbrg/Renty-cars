@@ -3,11 +3,10 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:renty_cars/pages/Home.dart';
+import 'package:renty_cars/pages/HomePage.dart';
 import 'package:renty_cars/pages/Login.dart';
 import 'package:renty_cars/pages/SignUp.dart';
-import 'package:renty_cars/pages/detail_page/Car_List_Page.dart';
-import 'package:renty_cars/pages/detail_page/DetailPageView.dart';
+import 'package:renty_cars/widgets/NavBar.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -33,12 +32,13 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: CarListPage(),
+
+      home: Login(),
       // home: FirebaseAuth.instance.currentUser == null ? Login() : Home(),
       routes: {
         "signup": (context) => SignUp(),
         "login": (context) => Login(),
-        "home": (context) => Home(),
+        "home": (context) => HomePage(),
       },
     );
   }

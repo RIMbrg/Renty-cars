@@ -16,7 +16,10 @@ class CustomTextField extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
       Text(fieldname,
-          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18)),
+          style: TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 18,
+              color: Colors.deepOrange)),
       const SizedBox(height: 10),
       TextFormField(
           controller: mycontroller,
@@ -26,13 +29,13 @@ class CustomTextField extends StatelessWidget {
               contentPadding:
                   const EdgeInsets.symmetric(vertical: 2, horizontal: 20),
               filled: true,
-              fillColor: Colors.grey[200],
+              fillColor: Colors.grey[100],
               border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(50),
+                  borderRadius: BorderRadius.circular(10),
                   borderSide: const BorderSide(
                       color: Color.fromARGB(255, 219, 219, 219))),
               enabledBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(50),
+                  borderRadius: BorderRadius.circular(10),
                   borderSide: const BorderSide(color: Colors.grey)))),
     ]);
   }

@@ -16,13 +16,6 @@ class _HomeState extends State<Home> {
     return Column(
       children: [
         Text('data'),
-        IconButton(
-            onPressed: () async {
-              await FirebaseAuth.instance.signOut();
-              Navigator.of(context)
-                  .pushNamedAndRemoveUntil("login", (route) => false);
-            },
-            icon: Icon(Icons.exit_to_app))
       ],
     );
   }
