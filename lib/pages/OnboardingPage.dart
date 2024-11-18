@@ -68,15 +68,19 @@ class _OnboardingPageState extends State<OnboardingPage> {
                       const SizedBox(height: 50),
                       ButtonAuth(
                         buttontext: 'LOG IN',
+                        TextColor: tAccentColor,
+                        ButtonColor: tWhiteColor,
                         onpressed: () {
                           Navigator.push(context,
                               MaterialPageRoute(builder: (context) => Login()));
                         },
                       ),
 // SIGN UP Button
-                      SizedBox(height: 20),
+                      const SizedBox(height: 20),
                       ButtonAuth(
                         buttontext: 'SIGN UP',
+                        TextColor: tAccentColor,
+                        ButtonColor: tWhiteColor,
                         onpressed: () {
                           Navigator.push(
                               context,

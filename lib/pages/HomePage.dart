@@ -2,6 +2,9 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 import 'package:renty_cars/models/car.dart';
+import 'package:renty_cars/widgets/MyAppBar.dart';
+import 'package:renty_cars/widgets/MyAppBar2.dart';
+import 'package:renty_cars/widgets/constants.dart';
 import 'package:renty_cars/widgets/navbar.dart';
 import 'package:renty_cars/widgets/SearchField.dart';
 import 'package:renty_cars/widgets/SelectCategory.dart';
@@ -18,27 +21,10 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        elevation: 0.0,
-        backgroundColor: Colors.white,
-        toolbarHeight: 80.0,
-        title: Row(children: [
-          Icon(
-            Icons.location_on,
-            color: Colors.blue.shade600,
-          ),
-          Text(
-            "Airoport Paris CDG, Paris",
-            style: TextStyle(color: Colors.black),
-          ),
-          IconButton(
-              onPressed: () async {
-                await FirebaseAuth.instance.signOut();
-                Navigator.of(context)
-                    .pushNamedAndRemoveUntil("login", (route) => false);
-              },
-              icon: Icon(Icons.exit_to_app))
-        ]),
+      resizeToAvoidBottomInset: true,
+      backgroundColor: tWhiteColor,
+      appBar: const MyAppBar2(
+        pageTitle: "Airoport Paris CDG, Paris",
       ),
       body: SingleChildScrollView(
         child: Padding(

@@ -17,9 +17,9 @@ class _CarCardState extends State<CarCard> {
   Widget build(BuildContext context) {
     return Container(
       width: 300.0,
-      margin: EdgeInsets.only(right: 20.0),
+      margin: const EdgeInsets.only(right: 20.0),
       decoration: BoxDecoration(
-          color: Color(0xfcf9f8),
+          color: const Color(0xfcf9f8),
           borderRadius: BorderRadius.circular(8.0),
           border: Border.all(color: Colors.grey.shade200)),
       child: InkWell(
@@ -40,20 +40,17 @@ class _CarCardState extends State<CarCard> {
                   ),
                 ),
               ),
-              SizedBox(
-                height: 8.0,
-              ),
+              const SizedBox(height: 8.0),
+              const SizedBox(height: 8.0),
               Text(
                 widget.car.carName!,
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0),
+                style: const TextStyle(
+                    fontWeight: FontWeight.bold, fontSize: 20.0),
                 overflow: TextOverflow.ellipsis,
-              ),
-              SizedBox(
-                height: 8.0,
               ),
               Row(
                 children: [
-                  Icon(
+                  const Icon(
                     Icons.location_on,
                     color: Colors.grey,
                   ),

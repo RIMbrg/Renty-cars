@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:renty_cars/pages/HomePage.dart';
 import 'package:renty_cars/pages/Login.dart';
+import 'package:renty_cars/pages/OldHome.dart';
 import 'package:renty_cars/pages/SignUp.dart';
 import 'package:renty_cars/widgets/NavBar.dart';
 
@@ -33,7 +34,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
 
-      home: Login(),
+      home: NavBarPage(),
       // home: FirebaseAuth.instance.currentUser == null ? Login() : Home(),
       routes: {
         "signup": (context) => SignUp(),

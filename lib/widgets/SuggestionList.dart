@@ -40,10 +40,12 @@ class _SuggestionListState extends State<SuggestionList> {
               itemCount: widget.Cars.length,
               itemBuilder: (context, index) => CarCard(widget.Cars[index], () {
                     Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) =>
-                                CarDetailsPage(widget.Cars[index])));
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) =>
+                            CarDetailsPage(widget.Cars[index]),
+                      ),
+                    );
                   })),
         )
       ]),

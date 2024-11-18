@@ -1,10 +1,12 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/material.dart';
+import 'package:renty_cars/widgets/constants.dart';
 import 'package:vector_math/vector_math.dart' as math;
 //  import 'package:flutter_a/Screens/utils.dart';
 
-class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
-  const MyAppBar({super.key, required this.pageTitle, this.iconeName});
+class MyAppBar2 extends StatelessWidget implements PreferredSizeWidget {
+  const MyAppBar2({super.key, required this.pageTitle, this.iconeName});
 
   final String pageTitle;
   final IconData? iconeName;
@@ -19,22 +21,19 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
     return AppBar(
       elevation: 0.0,
       backgroundColor: Colors.white,
-      title: Text(pageTitle,
-          style: const TextStyle(
-            color: Colors.black,
-            fontSize: 20,
-            fontWeight: FontWeight.bold,
-          )),
-      centerTitle: true,
-      leading: const BackScreen(),
-      actions: [
+      toolbarHeight: 80.0,
+      title: Row(children: [
+        const Icon(Icons.location_on, color: tAccentColor),
+        const SizedBox(width: 10),
+        Text(pageTitle, style: TextStyle(color: Colors.black)),
         IconButton(
-          onPressed: () {},
-          icon: Icon(iconeName),
-          iconSize: 20,
-          color: Colors.black,
-        )
-      ],
+            onPressed: () async {
+              await FirebaseAuth.instance.signOut();
+              Navigator.of(context)
+                  .pushNamedAndRemoveUntil("login", (route) => false);
+            },
+            icon: const Icon(Icons.exit_to_app))
+      ]),
     );
   }
 }
