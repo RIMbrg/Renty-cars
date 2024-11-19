@@ -1,7 +1,12 @@
+// ignore: file_names
 import 'package:flutter/material.dart';
 
 import 'package:renty_cars/models/car.dart';
+import 'package:renty_cars/pages/TestCode/Bottom.dart';
+import 'package:renty_cars/pages/TestCode/CarModel.dart';
+import 'package:renty_cars/pages/TestCode/size_config.dart';
 import 'package:renty_cars/widgets/ButtonFavorite.dart';
+import 'package:renty_cars/widgets/constants.dart';
 
 class CarDetailsPage extends StatefulWidget {
   CarDetailsPage(this.car, {Key? key}) : super(key: key);
@@ -16,21 +21,30 @@ class _CarDetailsPageState extends State<CarDetailsPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
+//
+//
+//
       appBar: AppBar(
         elevation: 0.0,
         backgroundColor: Colors.white,
-        iconTheme: IconThemeData(color: Colors.blueAccent),
+        iconTheme: const IconThemeData(color: Colors.blueAccent),
         title: Text(
-          widget.car.carModel!,
-          style: TextStyle(color: Colors.black),
+          widget.car.carName!,
+          style: const TextStyle(color: Colors.black),
         ),
       ),
+//
+//
+//
       body: Padding(
-        padding: EdgeInsets.all(18.0),
+        padding: const EdgeInsets.all(18.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            //
+            //
+            //
             Container(
               width: double.infinity,
               height: 300.0,
@@ -41,7 +55,10 @@ class _CarDetailsPageState extends State<CarDetailsPage> {
                       image: AssetImage(widget.car.carImageUrl!),
                       fit: BoxFit.cover)),
             ),
-            SizedBox(height: 10.0),
+            const SizedBox(height: 10.0),
+            //
+            //
+            //
             Text(
               widget.car.carDescription!,
               style: TextStyle(
@@ -50,29 +67,32 @@ class _CarDetailsPageState extends State<CarDetailsPage> {
                 fontSize: 18.0,
               ),
             ),
-            SizedBox(
-              height: 8.0,
-            ),
+            const SizedBox(height: 8.0),
+            //
+            //
+            //
+
             Text(
               widget.car.carName!,
-              style: TextStyle(
+              style: const TextStyle(
                 fontWeight: FontWeight.bold,
                 fontSize: 20.0,
               ),
               overflow: TextOverflow.ellipsis,
             ),
-            SizedBox(
-              height: 8.0,
-            ),
+            const SizedBox(height: 8.0),
+            //
+            //
+            //
             Row(
               children: [
-                Icon(
+                const Icon(
                   Icons.location_on,
                   color: Colors.grey,
                 ),
                 Text(
                   widget.car.carLocation!,
-                  style: TextStyle(
+                  style: const TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 16.0,
                       color: Colors.grey),
@@ -80,20 +100,56 @@ class _CarDetailsPageState extends State<CarDetailsPage> {
                 )
               ],
             ),
-            SizedBox(
-              height: 10.0,
-            ),
+            const SizedBox(height: 10.0),
+            //
+            //
+            //
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
                   "${widget.car.rentalPrice}\$/Month",
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 22.0),
+                  style: const TextStyle(
+                      fontWeight: FontWeight.bold, fontSize: 22.0),
                   overflow: TextOverflow.ellipsis,
                 ),
                 ButtonFavorite(),
               ],
             ),
+            //
+            //
+            //
+
+            //
+            //
+            //
+            // Expanded(
+            //   flex: 3,
+            //   child: Container(
+            //     padding: EdgeInsets.symmetric(
+            //         horizontal: getProportionateWidth(20),
+            //         vertical: getProportionateHeight(20)),
+            //     decoration: const BoxDecoration(
+            //         borderRadius: BorderRadius.only(
+            //           topLeft: Radius.circular(30),
+            //           topRight: Radius.circular(30),
+            //         ),
+            //         color: tAccentColor),
+            //     child: const Text("car properties"),
+
+            //     // Bottom(
+            //     //   carModel: !,
+            //     // ),
+            //   ),
+            // ),
+
+            Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
+              overview(widget.car.carName!, Icons.speed),
+              overview(
+                widget.car.carDescription!,
+                Icons.car_rental,
+              )
+            ]),
             Expanded(child: Container()),
             Container(
               width: double.infinity,
@@ -106,7 +162,7 @@ class _CarDetailsPageState extends State<CarDetailsPage> {
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(6)),
                 fillColor: Colors.blue.shade600,
-                child: Text(
+                child: const Text(
                   "Rent now",
                   style: TextStyle(color: Colors.white, fontSize: 18.0),
                 ),
@@ -117,4 +173,36 @@ class _CarDetailsPageState extends State<CarDetailsPage> {
       ),
     );
   }
+}
+
+Container overview(String text, IconData icon) {
+  return Container(
+    margin: const EdgeInsets.only(top: 10),
+    padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+    width: SizeConfig.screenWidth! * 0.4,
+    height: SizeConfig.screenHeight! * 0.08,
+    decoration: BoxDecoration(
+        // color: kPrimaryColor,
+        borderRadius: BorderRadius.circular(20),
+        border: Border.all(color: tPrimaryColor)),
+    child: Row(
+      mainAxisAlignment: MainAxisAlignment.spaceAround,
+      children: [
+        Container(
+          width: getProportionateWidth(30),
+          height: getProportionateHeight(30),
+          decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(5), color: tAccentColor),
+          child: Icon(
+            icon,
+            color: tOnBoardingPage3Color,
+          ),
+        ),
+        Text(
+          text,
+          style: const TextStyle(color: tOnBoardingPage2Color, fontSize: 18),
+        )
+      ],
+    ),
+  );
 }

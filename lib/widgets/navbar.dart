@@ -7,6 +7,7 @@ import 'package:renty_cars/pages/Login.dart';
 import 'package:renty_cars/pages/OnboardingPage.dart';
 import 'package:renty_cars/pages/ProfilePage.dart';
 import 'package:renty_cars/pages/SignUp.dart';
+import 'package:renty_cars/pages/TestCode/HomeScreen.dart';
 
 class NavBarPage extends StatefulWidget {
   const NavBarPage({Key? key}) : super(key: key);
@@ -25,6 +26,7 @@ class _NavBarPageState extends State<NavBarPage> {
     // pageList.add(LoginPage());
     // pageList.add(Home());
     pageList.add(HomePage());
+    pageList.add(HomeScreen());
     pageList.add(ProfilePage());
 
     // pageList.add();

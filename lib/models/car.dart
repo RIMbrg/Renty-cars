@@ -15,11 +15,11 @@ class Car {
     this.rentalPrice,
   );
 
-  static List<Car> recommendation = [
+  static List<Car> recommandation = [
     Car(
       'Tesla Model S',
       '2023',
-      'lib/images/Car1.jpg',
+      'lib/images/car1.jpg',
       'A sleek electric sedan with impressive range and acceleration.',
       'Tunis',
       100.00,
@@ -27,10 +27,18 @@ class Car {
     Car(
       'BMW X5',
       '2022',
-      'https://link-to-image.com/bmw_x5.jpg',
+      'lib/images/car2.jpg',
       'Luxury SUV with a comfortable ride and modern features.',
       'Sfax',
       150.00,
+    ),
+    Car(
+      'Mercedes Model S',
+      '2023',
+      'lib/images/car3.jpg',
+      'A sleek electric sedan with impressive range and acceleration.',
+      'Gabes',
+      100.00,
     ),
   ];
   static List<Car> nearby = [

@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 import 'package:renty_cars/models/car.dart';
 import 'package:renty_cars/widgets/MyAppBar.dart';
@@ -28,13 +29,17 @@ class _HomePageState extends State<HomePage> {
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.all(16.0),
+          padding: const EdgeInsets.all(16.0),
           child: Column(children: [
-            SearchField(),
-            SelectCategory(),
-            SizedBox(height: 20.0),
-            SuggestionList("Recommendation for you", Car.recommendation),
-            SizedBox(height: 20.0),
+            const SearchField(),
+            const SelectCategory(),
+            const SizedBox(height: 20.0),
+            // Expanded(
+            //     child:
+            SuggestionList(Car.recommandation),
+            // ),
+            const SizedBox(height: 20.0),
+
             // SuggestionList("Nearby you", Car.nearby)
           ]),
         ),

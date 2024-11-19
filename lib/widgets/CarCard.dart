@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:renty_cars/models/car.dart';
 import 'package:renty_cars/widgets/ButtonFavorite.dart';
+import 'package:renty_cars/widgets/constants.dart';
 
 class CarCard extends StatefulWidget {
   CarCard(this.car, this.onTap, {Key? key}) : super(key: key);
@@ -41,43 +42,64 @@ class _CarCardState extends State<CarCard> {
                 ),
               ),
               const SizedBox(height: 8.0),
-              const SizedBox(height: 8.0),
-              Text(
-                widget.car.carName!,
-                style: const TextStyle(
-                    fontWeight: FontWeight.bold, fontSize: 20.0),
-                overflow: TextOverflow.ellipsis,
-              ),
-              Row(
-                children: [
-                  const Icon(
-                    Icons.location_on,
-                    color: Colors.grey,
-                  ),
-                  Text(
-                    widget.car.carLocation!,
-                    style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 16.0,
-                        color: Colors.grey),
-                    overflow: TextOverflow.ellipsis,
-                  )
-                ],
-              ),
-              SizedBox(
-                height: 20.0,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    "${widget.car.rentalPrice}\$/Month",
-                    style:
-                        TextStyle(fontWeight: FontWeight.bold, fontSize: 22.0),
-                    overflow: TextOverflow.ellipsis,
-                  ),
-                  ButtonFavorite(),
-                ],
+              // Padding(
+              //   padding: const EdgeInsets.symmetric(horizontal: 10),
+              //   child:
+
+              // ),
+
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+//**************name of the car
+                    Text(
+                      widget.car.carName!,
+                      style: const TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 20.0,
+                          color: tPrimaryColor),
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                    const SizedBox(height: 8.0),
+
+                    //**************** */ Location of the car
+
+                    Row(
+                      children: [
+                        const Icon(
+                          Icons.location_on,
+                          color: Colors.grey,
+                        ),
+                        Text(
+                          widget.car.carLocation!,
+                          style: const TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 16.0,
+                              color: Colors.grey),
+                          overflow: TextOverflow.ellipsis,
+                        )
+                      ],
+                    ),
+                    const SizedBox(height: 8.0),
+                    //************** */ Price of the car
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          "${widget.car.rentalPrice}DT per day ",
+                          style: const TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 22.0,
+                              color: tAccentColor),
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                        ButtonFavorite(),
+                      ],
+                    )
+                  ],
+                ),
               )
             ]),
       ),

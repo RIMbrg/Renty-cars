@@ -7,6 +7,8 @@ import 'package:renty_cars/pages/HomePage.dart';
 import 'package:renty_cars/pages/Login.dart';
 import 'package:renty_cars/pages/OldHome.dart';
 import 'package:renty_cars/pages/SignUp.dart';
+import 'package:renty_cars/pages/TestCode/DetailsScreen.dart';
+import 'package:renty_cars/pages/TestCode/HomeScreen.dart';
 import 'package:renty_cars/widgets/NavBar.dart';
 
 void main() async {

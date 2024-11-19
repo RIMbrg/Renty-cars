@@ -44,7 +44,9 @@ class _LoginState extends State<Login> {
                       children: [
                         Text('Login',
                             style: TextStyle(
-                                fontWeight: FontWeight.bold, fontSize: 30)),
+                                fontWeight: FontWeight.bold,
+                                fontSize: 30,
+                                color: tSecondaryColor)),
                         SizedBox(height: 10),
                         Text('Login to continue using the app',
                             style: TextStyle(color: Colors.grey)),
