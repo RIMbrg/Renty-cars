@@ -19,7 +19,7 @@ class _CarCardState extends State<CarCard> {
       width: 300.0,
       margin: const EdgeInsets.only(right: 20.0),
       decoration: BoxDecoration(
-          color: const Color(0xfcf9f8),
+          color: const Color(0x00fcf9f8),
           borderRadius: BorderRadius.circular(8.0),
           border: Border.all(color: Colors.grey.shade200)),
       child: InkWell(
@@ -56,7 +56,7 @@ class _CarCardState extends State<CarCard> {
                   ),
                   Text(
                     widget.car.carLocation!,
-                    style: TextStyle(
+                    style: const TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 16.0,
                         color: Colors.grey),
@@ -64,7 +64,7 @@ class _CarCardState extends State<CarCard> {
                   )
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20.0,
               ),
               Row(
@@ -73,7 +73,7 @@ class _CarCardState extends State<CarCard> {
                   Text(
                     "${widget.car.rentalPrice}\$/Month",
                     style:
-                        TextStyle(fontWeight: FontWeight.bold, fontSize: 22.0),
+                        const TextStyle(fontWeight: FontWeight.bold, fontSize: 22.0),
                     overflow: TextOverflow.ellipsis,
                   ),
                   ButtonFavorite(),

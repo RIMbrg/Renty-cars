@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_web_libraries_in_flutter, unused_import, file_names, unnecessary_import
+
 import 'dart:js';
 
 import 'package:flutter/foundation.dart';

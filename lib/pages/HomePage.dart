@@ -1,3 +1,5 @@
+// ignore_for_file: file_names, unused_import, prefer_const_constructors
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
@@ -11,7 +13,7 @@ import 'package:renty_cars/widgets/SelectCategory.dart';
 import 'package:renty_cars/widgets/SuggestionList.dart';
 
 class HomePage extends StatefulWidget {
-  const HomePage({Key? key}) : super(key: key);
+  const HomePage({Key? key, required int idx}) : super(key: key);
 
   @override
   State<HomePage> createState() => _HomePageState();

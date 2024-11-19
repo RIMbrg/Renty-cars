@@ -2,6 +2,11 @@
 
 import 'package:flutter/material.dart';
 import 'package:renty_cars/pages/Home.dart';
+import 'package:renty_cars/pages/HomePage.dart';
+import 'package:renty_cars/pages/OnboardingPage.dart';
+import 'package:renty_cars/pages/ProfilePage.dart';
+import 'package:renty_cars/pages/SignUp.dart';
+import 'package:renty_cars/pages/login.dart';
 
 
 class NavBarPage extends StatefulWidget {
@@ -14,9 +19,11 @@ class NavBarPage extends StatefulWidget {
 class _NavBarPageState extends State<NavBarPage> {
   @override
   void initState() {
-    pageList.add(SearchScreen());
-    // pageList.add(BookingsScreen());
-    // pageList.add(ProfilePage());
+    pageList.add(HomePage(idx: 1,));
+    pageList.add(ProfilePage());
+     // pageList.add(LoginPage());
+    // pageList.add(Home());
+    // pageList.add(SignUpPage());
     super.initState();
   }
 

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import 'package:renty_cars/widgets/constants.dart';
 
 Widget insertButton({label, action, butColor, txtColor}) {
   return Padding(

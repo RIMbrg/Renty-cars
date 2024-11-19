@@ -32,8 +32,8 @@ class _OldLoginPageState extends State<OldLoginPage> {
     return Scaffold(
         resizeToAvoidBottomInset: true,
         backgroundColor: Colors.white,
-        appBar: MyAppBar(pageTitle: "  "),
-        body: Container(
+        appBar: const MyAppBar(pageTitle: "  "),
+        body: SizedBox(
           height: MediaQuery.of(context).size.height,
           width: double.infinity,
           child: Column(
@@ -61,7 +61,7 @@ class _OldLoginPageState extends State<OldLoginPage> {
                         )
                       ]),
                       Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 40),
+                        padding: const EdgeInsets.symmetric(horizontal: 40),
                         child: Column(
                           children: [
                             inputFile(label: "Email"),

@@ -32,7 +32,7 @@ class ButtonAuth extends StatelessWidget {
       textColor: TextColor,
       child: Text(
         buttontext,
-        style: TextStyle(
+        style: const TextStyle(
           fontSize: 18,
           fontWeight: FontWeight.w600,
         ),

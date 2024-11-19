@@ -25,7 +25,7 @@ class MyAppBar2 extends StatelessWidget implements PreferredSizeWidget {
       title: Row(children: [
         const Icon(Icons.location_on, color: tAccentColor),
         const SizedBox(width: 10),
-        Text(pageTitle, style: TextStyle(color: Colors.black)),
+        Text(pageTitle, style: const TextStyle(color: Colors.black)),
         IconButton(
             onPressed: () async {
               await FirebaseAuth.instance.signOut();

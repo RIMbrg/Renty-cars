@@ -18,13 +18,13 @@ class _OldSignUpPageState extends State<OldSignUpPage> {
     return Scaffold(
       resizeToAvoidBottomInset: true,
       backgroundColor: tWhiteColor,
-      appBar: MyAppBar(
+      appBar: const MyAppBar(
         pageTitle: "  ",
       ),
 
       body: SingleChildScrollView(
         child: Container(
-          padding: EdgeInsets.symmetric(horizontal: 40),
+          padding: const EdgeInsets.symmetric(horizontal: 40),
           height: MediaQuery.of(context).size.height - 50,
           width: double.infinity,
           child: Column(

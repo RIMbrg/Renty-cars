@@ -4,6 +4,10 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:renty_cars/pages/Home.dart';
+import 'package:renty_cars/pages/OnboardingPage.dart';
+import 'package:renty_cars/pages/comfimationpage.dart';
+import 'package:renty_cars/pages/driver.dart';
+import 'package:renty_cars/pages/login.dart';
 import 'package:renty_cars/pages/optionPage.dart';
 import 'package:renty_cars/pages/search.dart';
 import 'package:renty_cars/pages/searchresult.dart';
@@ -32,7 +36,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-    home: NavBarPage(),
+    home:ConfirmationScreen(),
       );
     
     

@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/painting.dart';
-import 'package:flutter/rendering.dart';
-import 'package:flutter/widgets.dart';
 import 'package:renty_cars/widgets/ButtonAuth.dart';
 import 'package:renty_cars/widgets/CustomTextField.dart';
 import 'package:renty_cars/widgets/LogoAuth.dart';
 import 'package:renty_cars/widgets/MyAppBar.dart';
 import 'package:renty_cars/widgets/SocialButton.dart';
 import 'package:renty_cars/widgets/constants.dart';
+import 'package:renty_cars/widgets/navbar.dart';
 
 class Login extends StatefulWidget {
   const Login({super.key});
@@ -75,7 +73,12 @@ class _LoginState extends State<Login> {
                 buttontext: 'Login',
                 ButtonColor: tAccentColor,
                 TextColor: tWhiteColor,
-                onpressed: () {},
+                onpressed: () { Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => NavBarPage()));
+
+                },
               ),
               const SizedBox(height: 20),
               const Text(
@@ -86,11 +89,11 @@ class _LoginState extends State<Login> {
               const Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  SocialButton(imagepath: 'lib/images/google.png'),
+                  SocialButton(imagepath: 'images/google.png'),
                   SizedBox(
                     width: 10,
                   ),
-                  SocialButton(imagepath: 'lib/images/facebook.png'),
+                  SocialButton(imagepath: 'images/facebook.png'),
                 ],
               ),
               const SizedBox(height: 50),

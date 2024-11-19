@@ -23,7 +23,7 @@ Widget searchBar() {
               padding: EdgeInsets.all(12),
               child: Icon(Icons.search),
             ),
-            suffixIcon: Container(
+            suffixIcon: SizedBox(
               width: 100,
               child: const IntrinsicHeight(
                 child: Row(

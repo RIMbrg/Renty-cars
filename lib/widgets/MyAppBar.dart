@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/material.dart';
-import 'package:vector_math/vector_math.dart' as math;
 //  import 'package:flutter_a/Screens/utils.dart';
 
 class MyAppBar extends StatelessWidget implements PreferredSizeWidget {

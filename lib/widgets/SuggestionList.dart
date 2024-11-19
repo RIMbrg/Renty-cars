@@ -26,13 +26,13 @@ class _SuggestionListState extends State<SuggestionList> {
               style:
                   const TextStyle(fontWeight: FontWeight.bold, fontSize: 18.0),
             ),
-            TextButton(onPressed: () {}, child: Text('See All'))
+            TextButton(onPressed: () {}, child: const Text('See All'))
           ],
         ),
         const SizedBox(
           height: 12.0,
         ),
-        Container(
+        SizedBox(
           height: 340.0,
           width: double.infinity,
           child: ListView.builder(

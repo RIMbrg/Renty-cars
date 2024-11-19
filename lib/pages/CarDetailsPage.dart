@@ -1,6 +1,9 @@
+// ignore_for_file: must_be_immutable, file_names, prefer_const_constructors
+
 import 'package:flutter/material.dart';
 
 import 'package:renty_cars/models/car.dart';
+import 'package:renty_cars/pages/optionPage.dart';
 import 'package:renty_cars/widgets/ButtonFavorite.dart';
 
 class CarDetailsPage extends StatefulWidget {
@@ -101,7 +104,12 @@ class _CarDetailsPageState extends State<CarDetailsPage> {
               decoration:
                   BoxDecoration(borderRadius: BorderRadius.circular(16.0)),
               child: RawMaterialButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => RentalCarScreen()));
+                },
                 elevation: 0.0,
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(6)),

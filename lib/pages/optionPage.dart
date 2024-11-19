@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors, use_key_in_widget_constructors, library_private_types_in_public_api, file_names
 
 import 'package:flutter/material.dart';
+import 'package:renty_cars/pages/driver.dart';
 
 class RentalCarScreen extends StatefulWidget {
   @override
@@ -185,14 +186,20 @@ class _RentalCarScreenState extends State<RentalCarScreen> {
           SizedBox(height: 15),
           ElevatedButton(
       onPressed: () {
-        
+          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) =>DriverDetailsScreen(),
+                                  ));
       },
       style: ElevatedButton.styleFrom(
         padding: EdgeInsets.symmetric(horizontal: 20, vertical: 15), backgroundColor: Colors.blueAccent, 
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(10), 
+          
         ),
       ),
+      
       child: Text(
         'continue',
         style: TextStyle(

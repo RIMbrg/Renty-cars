@@ -1,3 +1,5 @@
+// ignore_for_file: unused_import, file_names, unnecessary_import, prefer_const_constructors
+
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:renty_cars/pages/Login.dart';
@@ -29,7 +31,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
               decoration: const BoxDecoration(
                 image: DecorationImage(
                   image: AssetImage(
-                      'lib/images/background.png'), // Path to your image
+                      'images/background.png'), // Path to your image
                   fit: BoxFit
                       .cover, // Adjust the image to cover the entire screen
                 ),
@@ -50,7 +52,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
                       SizedBox(
                         width: double.infinity,
                         child: Image(
-                            image: AssetImage('lib/images/logo_renty_car.png')),
+                            image: AssetImage('images/logo_renty_car.png')),
                       ),
                     ],
                   ),
