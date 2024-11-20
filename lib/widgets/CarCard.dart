@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
-import 'package:renty_cars/models/car.dart';
+import 'package:renty_cars/models/Car.dart';
+import 'package:renty_cars/pages/FavoriteProvider/FavoriteButton.dart';
 import 'package:renty_cars/widgets/ButtonFavorite.dart';
 import 'package:renty_cars/widgets/constants.dart';
 
@@ -55,7 +56,7 @@ class _CarCardState extends State<CarCard> {
                   children: [
 //**************name of the car
                     Text(
-                      widget.car.carName!,
+                      widget.car.name!,
                       style: const TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 20.0,
@@ -64,7 +65,7 @@ class _CarCardState extends State<CarCard> {
                     ),
                     const SizedBox(height: 8.0),
 
-                    //**************** */ Location of the car
+                    //**************** Location of the car
 
                     Row(
                       children: [
@@ -83,7 +84,7 @@ class _CarCardState extends State<CarCard> {
                       ],
                     ),
                     const SizedBox(height: 8.0),
-                    //************** */ Price of the car
+//**************  Price of the car
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -95,7 +96,8 @@ class _CarCardState extends State<CarCard> {
                               color: tAccentColor),
                           overflow: TextOverflow.ellipsis,
                         ),
-                        ButtonFavorite(),
+                        FavoriteButton(car: widget.car),
+                        // ButtonFavorite(),
                       ],
                     )
                   ],

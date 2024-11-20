@@ -1,7 +1,7 @@
 // ignore: file_names
 import 'package:flutter/material.dart';
 
-import 'package:renty_cars/models/car.dart';
+import 'package:renty_cars/models/Car.dart';
 import 'package:renty_cars/pages/TestCode/Bottom.dart';
 import 'package:renty_cars/pages/TestCode/CarModel.dart';
 import 'package:renty_cars/pages/TestCode/size_config.dart';
@@ -29,7 +29,7 @@ class _CarDetailsPageState extends State<CarDetailsPage> {
         backgroundColor: Colors.white,
         iconTheme: const IconThemeData(color: Colors.blueAccent),
         title: Text(
-          widget.car.carName!,
+          widget.car.name!,
           style: const TextStyle(color: Colors.black),
         ),
       ),
@@ -73,7 +73,7 @@ class _CarDetailsPageState extends State<CarDetailsPage> {
             //
 
             Text(
-              widget.car.carName!,
+              widget.car.name!,
               style: const TextStyle(
                 fontWeight: FontWeight.bold,
                 fontSize: 20.0,
@@ -144,7 +144,7 @@ class _CarDetailsPageState extends State<CarDetailsPage> {
             // ),
 
             Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-              overview(widget.car.carName!, Icons.speed),
+              overview(widget.car.name!, Icons.speed),
               overview(
                 widget.car.carDescription!,
                 Icons.car_rental,

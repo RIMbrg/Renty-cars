@@ -92,7 +92,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
                       const SizedBox(height: 20),
                       InkWell(
                         onTap: () {
-                          Navigator.of(context).pushNamed("home");
+                          Navigator.of(context).pushNamed("navbar");
                         },
                         child: const Text.rich(
                           TextSpan(

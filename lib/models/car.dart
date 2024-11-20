@@ -1,5 +1,5 @@
 class Car {
-  final String? carName;
+  final String? name;
   final String? carModel;
   final String? carImageUrl;
   final String? carDescription;
@@ -7,7 +7,7 @@ class Car {
   final double? rentalPrice;
 
   Car(
-    this.carName,
+    this.name,
     this.carModel,
     this.carImageUrl,
     this.carDescription,
@@ -41,6 +41,7 @@ class Car {
       100.00,
     ),
   ];
+
   static List<Car> nearby = [
     Car(
       'Mercedes Model S',

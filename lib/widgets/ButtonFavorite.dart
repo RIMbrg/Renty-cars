@@ -12,18 +12,34 @@ class _ButtonFavoriteState extends State<ButtonFavorite> {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: IconButton(
-        icon: Icon(
-          _isFavorite ? Icons.favorite : Icons.favorite_border, // Toggle icon
-          color: _isFavorite ? Colors.red : Colors.grey, // Change color
-        ),
-        onPressed: () {
-          setState(() {
-            _isFavorite = !_isFavorite; // Toggle the favorite state
-          });
-        },
-      ),
-      // ),
-    );
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+// this is the old icon button : without adding to the favorites page (without provider)
+        // child: IconButton(
+        //   icon: Icon(
+        //     _isFavorite ? Icons.favorite : Icons.favorite_border, // Toggle icon
+        //     color: _isFavorite ? Colors.red : Colors.grey, // Change color
+        //   ),
+        //   onPressed: () {
+        //     setState(() {
+        //       _isFavorite = !_isFavorite; // Toggle the favorite state
+        //     });
+        //   },
+        // ),
+
+        );
   }
 }

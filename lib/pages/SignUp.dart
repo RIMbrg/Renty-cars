@@ -56,19 +56,22 @@ class _SignUpState extends State<SignUp> {
                   ),
                   const SizedBox(height: 20),
                   CustomTextField(
+                      obscure: false,
                       fieldname: 'Username',
                       hinttext: "Enter your username",
                       mycontroller: username),
-                  const SizedBox(height: 10),
                   CustomTextField(
+                      obscure: false,
                       fieldname: 'Email',
                       hinttext: "Enter your Email",
                       mycontroller: email),
-                  const SizedBox(height: 10),
                   CustomTextField(
-                      fieldname: 'Password',
-                      hinttext: "Enter your Password",
-                      mycontroller: password),
+                    obscure: true,
+                    fieldname: 'Password',
+                    hinttext: "Enter your Password",
+                    mycontroller: password,
+                    // obscureText: true,
+                  ),
                   Container(
                     margin: const EdgeInsets.only(top: 10, bottom: 20),
                     alignment: Alignment.topRight,

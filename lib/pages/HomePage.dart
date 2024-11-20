@@ -2,7 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
-import 'package:renty_cars/models/car.dart';
+import 'package:renty_cars/models/Car.dart';
 import 'package:renty_cars/widgets/MyAppBar.dart';
 import 'package:renty_cars/widgets/MyAppBar2.dart';
 import 'package:renty_cars/widgets/constants.dart';
