@@ -50,6 +50,12 @@ class _CarCardState extends State<CarCard> {
   }
 }
 
+//
+//
+//
+//
+//
+
 class CarPreDetails extends StatelessWidget {
   const CarPreDetails(this.car, {super.key});
 
