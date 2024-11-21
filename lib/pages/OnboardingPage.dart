@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:renty_cars/pages/Login.dart';
-import 'package:renty_cars/pages/SignUp.dart';
+import 'package:renty_cars/pages/LoginPage.dart';
+import 'package:renty_cars/pages/SignUpPage.dart';
 import 'package:renty_cars/services/api_asma.dart';
 import 'package:renty_cars/widgets/ButtonAuth.dart';
-import 'package:renty_cars/widgets/InsertButton.dart';
+import 'package:renty_cars/widgets/OldWidgets/InsertButton.dart';
 import 'package:renty_cars/widgets/constants.dart';
 
 class OnboardingPage extends StatefulWidget {
@@ -15,7 +15,7 @@ class OnboardingPage extends StatefulWidget {
 }
 
 class _OnboardingPageState extends State<OnboardingPage> {
-  var routing = MaterialPageRoute(builder: (context) => SignUp());
+  var routing = MaterialPageRoute(builder: (context) => SignUpPage());
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -71,8 +71,10 @@ class _OnboardingPageState extends State<OnboardingPage> {
                         TextColor: tAccentColor,
                         ButtonColor: tWhiteColor,
                         onpressed: () {
-                          Navigator.push(context,
-                              MaterialPageRoute(builder: (context) => Login()));
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => LoginPage()));
                         },
                       ),
 // SIGN UP Button
@@ -85,7 +87,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => SignUp()));
+                                  builder: (context) => SignUpPage()));
                         },
                       ),
 //Skip Button

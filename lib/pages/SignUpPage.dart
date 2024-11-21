@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter/rendering.dart';
@@ -6,17 +7,17 @@ import 'package:renty_cars/widgets/ButtonAuth.dart';
 import 'package:renty_cars/widgets/CustomTextField.dart';
 import 'package:renty_cars/widgets/LogoAuth.dart';
 import 'package:renty_cars/widgets/MyAppBar.dart';
-import 'package:renty_cars/widgets/SocialButton.dart';
 import 'package:renty_cars/widgets/constants.dart';
 
-class Login extends StatefulWidget {
-  const Login({super.key});
+class SignUpPage extends StatefulWidget {
+  const SignUpPage({super.key});
 
   @override
-  State<Login> createState() => _LoginState();
+  State<SignUpPage> createState() => _SignUpPageState();
 }
 
-class _LoginState extends State<Login> {
+class _SignUpPageState extends State<SignUpPage> {
+  TextEditingController username = TextEditingController();
   TextEditingController email = TextEditingController();
   TextEditingController password = TextEditingController();
 
@@ -42,27 +43,35 @@ class _LoginState extends State<Login> {
                   const Center(
                     child: Column(
                       children: [
-                        Text('Login',
+                        Text('Sign Up',
                             style: TextStyle(
                                 fontWeight: FontWeight.bold,
                                 fontSize: 30,
-                                color: tSecondaryColor)),
+                                color: Colors.deepOrange)),
                         SizedBox(height: 10),
-                        Text('Login to continue using the app',
+                        Text('Enter your personal informations',
                             style: TextStyle(color: Colors.grey)),
                       ],
                     ),
                   ),
                   const SizedBox(height: 20),
                   CustomTextField(
+                      obscure: false,
+                      fieldname: 'Username',
+                      hinttext: "Enter your username",
+                      mycontroller: username),
+                  CustomTextField(
+                      obscure: false,
                       fieldname: 'Email',
                       hinttext: "Enter your Email",
                       mycontroller: email),
-                  const SizedBox(height: 10),
                   CustomTextField(
-                      fieldname: 'Password',
-                      hinttext: "Enter your Password",
-                      mycontroller: password),
+                    obscure: true,
+                    fieldname: 'Password',
+                    hinttext: "Enter your Password",
+                    mycontroller: password,
+                    // obscureText: true,
+                  ),
                   Container(
                     margin: const EdgeInsets.only(top: 10, bottom: 20),
                     alignment: Alignment.topRight,
@@ -74,42 +83,44 @@ class _LoginState extends State<Login> {
                 ],
               ),
               ButtonAuth(
-                buttontext: 'Login',
+                buttontext: 'Sign Up',
                 ButtonColor: tAccentColor,
                 TextColor: tWhiteColor,
-                onpressed: () {},
-              ),
-              const SizedBox(height: 20),
-              const Text(
-                'Or Login with',
-                textAlign: TextAlign.center,
-              ),
-              const SizedBox(height: 20),
-              const Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  SocialButton(imagepath: 'lib/images/google.png'),
-                  SizedBox(
-                    width: 10,
-                  ),
-                  SocialButton(imagepath: 'lib/images/facebook.png'),
-                ],
+                onpressed: () async {
+                  try {
+                    final credential = await FirebaseAuth.instance
+                        .createUserWithEmailAndPassword(
+                      email: email.text,
+                      password: password.text,
+                    );
+                    Navigator.of(context).pushReplacementNamed("home");
+                  } on FirebaseAuthException catch (e) {
+                    if (e.code == 'weak-password') {
+                      print('The password provided is too weak.');
+                    } else if (e.code == 'email-already-in-use') {
+                      print('The account already exists for that email.');
+                    }
+                  } catch (e) {
+                    print(e);
+                  }
+                },
               ),
               const SizedBox(height: 50),
               InkWell(
                 onTap: () {
-                  Navigator.of(context).pushReplacementNamed("signup");
+                  Navigator.of(context).pushNamed("login");
                 },
                 child: const Text.rich(
                   TextSpan(children: [
-                    TextSpan(text: "Don't have an account?"),
+                    TextSpan(text: "Have an account?"),
                     TextSpan(
-                        text: " Sign up",
+                        text: " Login",
                         style: TextStyle(color: Color(0xFF2972FF)))
                   ]),
                   textAlign: TextAlign.center,
                 ),
               ),
+              const SizedBox(height: 20),
             ])),
       ),
     );

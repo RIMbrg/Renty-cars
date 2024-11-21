@@ -4,7 +4,7 @@ import 'package:flutter/widgets.dart';
 
 import 'package:renty_cars/models/Car.dart';
 import 'package:renty_cars/widgets/MyAppBar.dart';
-import 'package:renty_cars/widgets/MyAppBar2.dart';
+import 'package:renty_cars/widgets/MyAppBarHome.dart';
 import 'package:renty_cars/widgets/constants.dart';
 import 'package:renty_cars/widgets/navbar.dart';
 import 'package:renty_cars/widgets/SearchField.dart';
@@ -24,7 +24,7 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       resizeToAvoidBottomInset: true,
       backgroundColor: tWhiteColor,
-      appBar: const MyAppBar2(
+      appBar: const MyAppBarHome(
         pageTitle: "Airoport Paris CDG, Paris",
       ),
       body: SingleChildScrollView(

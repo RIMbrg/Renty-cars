@@ -1,13 +1,16 @@
 // ignore_for_file: prefer_const_constructors, file_names
 
 import 'package:flutter/material.dart';
-import 'package:renty_cars/pages/CarDetailsPage.dart';
 import 'package:renty_cars/pages/FavoriteProvider/FavoritePage.dart';
 import 'package:renty_cars/pages/HomePage.dart';
-import 'package:renty_cars/pages/Login.dart';
+
+import 'package:renty_cars/pages/LoginPage.dart';
 import 'package:renty_cars/pages/OnboardingPage.dart';
 import 'package:renty_cars/pages/ProfilePage.dart';
-import 'package:renty_cars/pages/SignUp.dart';
+import 'package:renty_cars/pages/ReservationsPage.dart';
+
+import 'package:renty_cars/pages/SettingsPage.dart';
+import 'package:renty_cars/pages/SignUpPage.dart';
 import 'package:renty_cars/pages/TestCode/HomeScreen.dart';
 
 class NavBarPage extends StatefulWidget {
@@ -20,19 +23,20 @@ class NavBarPage extends StatefulWidget {
 class _NavBarPageState extends State<NavBarPage> {
   @override
   void initState() {
-    // pageList.add(OnboardingPage());
-    // pageList.add(SignUp());
-    // // pageList.add(SignUpPage());
-    // pageList.add(Login());
-    // // pageList.add(LoginPage());
+    //
 
     pageList.add(HomePage());
-    pageList.add(HomeScreen());
-
     pageList.add(FavoritesPage());
+    pageList.add(ReservationsPage());
     pageList.add(ProfilePage());
+    pageList.add(SettingsPage());
+    pageList.add(HomeScreen());
+    pageList.add(OnboardingPage());
+    pageList.add(SignUpPage());
+    // // pageList.add(SignUpPage());
+    pageList.add(LoginPage());
+    // // pageList.add(LoginPage());
 
-    // pageList.add();
     super.initState();
   }
 
@@ -60,6 +64,30 @@ class _NavBarPageState extends State<NavBarPage> {
         type: BottomNavigationBarType.fixed,
         items: const [
           BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: 'Home',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.favorite),
+            label: 'Favorite',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.calendar_today),
+            label: 'Reservations',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person),
+            label: 'Profile',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.settings),
+            label: 'Settings',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home_outlined),
+            label: 'Home2',
+          ),
+          BottomNavigationBarItem(
             icon: Icon(Icons.handshake),
             label: 'Onboarding',
           ),
@@ -70,30 +98,6 @@ class _NavBarPageState extends State<NavBarPage> {
           BottomNavigationBarItem(
             icon: Icon(Icons.login),
             label: 'Login',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: 'Home',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home_outlined),
-            label: 'Home2',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.favorite),
-            label: 'Favorite',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person),
-            label: 'Profile',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.calendar_today),
-            label: 'Reservations',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.settings),
-            label: 'Settings',
           ),
         ],
       ),

@@ -1,11 +1,12 @@
 // ignore: file_names
 import 'package:flutter/material.dart';
+// import 'package:flutter/widgets.dart';
 
 import 'package:renty_cars/models/Car.dart';
-import 'package:renty_cars/pages/TestCode/Bottom.dart';
-import 'package:renty_cars/pages/TestCode/CarModel.dart';
+
 import 'package:renty_cars/pages/TestCode/size_config.dart';
-import 'package:renty_cars/widgets/ButtonFavorite.dart';
+import 'package:renty_cars/widgets/CarCard.dart';
+
 import 'package:renty_cars/widgets/constants.dart';
 
 class CarDetailsPage extends StatefulWidget {
@@ -25,12 +26,13 @@ class _CarDetailsPageState extends State<CarDetailsPage> {
 //
 //
       appBar: AppBar(
+        leading: BackButton(color: tAccentColor),
         elevation: 0.0,
         backgroundColor: Colors.white,
         iconTheme: const IconThemeData(color: Colors.blueAccent),
         title: Text(
           widget.car.name!,
-          style: const TextStyle(color: Colors.black),
+          style: const TextStyle(color: tPrimaryColor),
         ),
       ),
 //
@@ -42,9 +44,7 @@ class _CarDetailsPageState extends State<CarDetailsPage> {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            //
-            //
-            //
+            // Car image
             Container(
               width: double.infinity,
               height: 300.0,
@@ -57,65 +57,18 @@ class _CarDetailsPageState extends State<CarDetailsPage> {
             ),
             const SizedBox(height: 10.0),
             //
-            //
-            //
-            Text(
-              widget.car.carDescription!,
-              style: TextStyle(
-                color: Colors.blue.shade600,
-                fontWeight: FontWeight.bold,
-                fontSize: 18.0,
-              ),
-            ),
-            const SizedBox(height: 8.0),
-            //
-            //
-            //
 
-            Text(
-              widget.car.name!,
-              style: const TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 20.0,
-              ),
-              overflow: TextOverflow.ellipsis,
-            ),
-            const SizedBox(height: 8.0),
-            //
-            //
-            //
-            Row(
-              children: [
-                const Icon(
-                  Icons.location_on,
-                  color: Colors.grey,
-                ),
-                Text(
-                  widget.car.carLocation!,
-                  style: const TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 16.0,
-                      color: Colors.grey),
-                  overflow: TextOverflow.ellipsis,
-                )
-              ],
-            ),
-            const SizedBox(height: 10.0),
-            //
-            //
-            //
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  "${widget.car.rentalPrice}\$/Month",
-                  style: const TextStyle(
-                      fontWeight: FontWeight.bold, fontSize: 22.0),
-                  overflow: TextOverflow.ellipsis,
-                ),
-                ButtonFavorite(),
-              ],
-            ),
+            // Text(
+            //   widget.car.carDescription!,
+            //   style: TextStyle(
+            //     color: Colors.blue.shade600,
+            //     fontWeight: FontWeight.bold,
+            //     fontSize: 18.0,
+            //   ),
+            // ),
+            // const SizedBox(height: 8.0),
+
+            CarPreDetails(widget.car),
             //
             //
             //
@@ -143,13 +96,44 @@ class _CarDetailsPageState extends State<CarDetailsPage> {
             //   ),
             // ),
 
-            Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-              overview(widget.car.name!, Icons.speed),
-              overview(
-                widget.car.carDescription!,
-                Icons.car_rental,
-              )
-            ]),
+            Padding(
+              padding: const EdgeInsets.only(left: 15.0),
+              child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const SizedBox(height: 40),
+                    const Text(
+                      'Properties',
+                      style: TextStyle(
+                        color: tSecondaryColor,
+                        fontSize: 25,
+                        fontWeight: FontWeight.w900,
+                      ),
+                    ),
+                    //                 Car(
+                    //   this.name,
+                    //   this.carModel,
+                    //   this.year,
+                    //   this.rentalPrice,
+                    //   this.transmission,
+                    //   this.fuelType,
+                    //   this.maxSpeed,
+                    //   this.capacity,
+                    //   this.carImageUrl,
+                    //   this.carLocation,
+                    // );
+                    overview(
+                      widget.car.transmission!,
+                      Icons.car_repair,
+                    ),
+                    overview(widget.car.fuelType!, Icons.warning),
+
+                    overview(widget.car.maxSpeed!, Icons.speed),
+                    overview(widget.car.capacity!, Icons.chair),
+                  ]),
+            ),
+            //Button rent now
             Expanded(child: Container()),
             Container(
               width: double.infinity,
@@ -161,7 +145,7 @@ class _CarDetailsPageState extends State<CarDetailsPage> {
                 elevation: 0.0,
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(6)),
-                fillColor: Colors.blue.shade600,
+                fillColor: tAccentColor,
                 child: const Text(
                   "Rent now",
                   style: TextStyle(color: Colors.white, fontSize: 18.0),
@@ -177,30 +161,32 @@ class _CarDetailsPageState extends State<CarDetailsPage> {
 
 Container overview(String text, IconData icon) {
   return Container(
-    margin: const EdgeInsets.only(top: 10),
-    padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-    width: SizeConfig.screenWidth! * 0.4,
-    height: SizeConfig.screenHeight! * 0.08,
-    decoration: BoxDecoration(
-        // color: kPrimaryColor,
-        borderRadius: BorderRadius.circular(20),
-        border: Border.all(color: tPrimaryColor)),
+    margin: const EdgeInsets.only(top: 5),
+    padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+    // width: SizeConfig.screenWidth! * 0.4,
+    // height: SizeConfig.screenHeight! * 0.08,
+    // decoration: BoxDecoration(
+    //     // color: kPrimaryColor,
+    //     borderRadius: BorderRadius.circular(20),
+    //     border: Border.all(color: tAccentColor)),
     child: Row(
-      mainAxisAlignment: MainAxisAlignment.spaceAround,
+      mainAxisAlignment: MainAxisAlignment.start,
       children: [
         Container(
           width: getProportionateWidth(30),
           height: getProportionateHeight(30),
           decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(5), color: tAccentColor),
+              borderRadius: BorderRadius.circular(5), color: tPrimaryColor),
           child: Icon(
             icon,
-            color: tOnBoardingPage3Color,
+            color: tWhiteColor,
           ),
         ),
+        const SizedBox(width: 8.0),
         Text(
           text,
-          style: const TextStyle(color: tOnBoardingPage2Color, fontSize: 18),
+          style: const TextStyle(
+              color: tPrimaryColor, fontSize: 18, fontWeight: FontWeight.w600),
         )
       ],
     ),

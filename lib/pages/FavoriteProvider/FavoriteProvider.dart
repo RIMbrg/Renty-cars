@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:renty_cars/models/Car.dart';
-import 'package:renty_cars/pages/FavoriteProvider/FavoriteItem.dart';
 
 // class Item {
 //   final String name;

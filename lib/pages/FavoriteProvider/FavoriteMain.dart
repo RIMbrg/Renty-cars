@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:renty_cars/pages/FavoriteProvider/FavoriteButton.dart';
+import 'package:renty_cars/widgets/FavoriteButton.dart';
 import 'package:renty_cars/pages/FavoriteProvider/FavoritePage.dart';
 import 'package:renty_cars/pages/FavoriteProvider/FavoriteProvider.dart';
 import 'package:renty_cars/models/Car.dart';
@@ -38,30 +38,30 @@ class MainPage extends StatelessWidget {
   // ];
 
   final List<Car> recommandation = [
-    Car(
-      'Tesla Model S',
-      '2023',
-      'lib/images/car1.jpg',
-      'A sleek electric sedan with impressive range and acceleration.',
-      'Tunis',
-      100.00,
-    ),
-    Car(
-      'BMW X5',
-      '2022',
-      'lib/images/car2.jpg',
-      'Luxury SUV with a comfortable ride and modern features.',
-      'Sfax',
-      150.00,
-    ),
-    Car(
-      'Mercedes Model S',
-      '2023',
-      'lib/images/car3.jpg',
-      'A sleek electric sedan with impressive range and acceleration.',
-      'Gabes',
-      100.00,
-    ),
+    //   Car(
+    //     'Tesla Model S',
+    //     '2023',
+    //     'lib/images/car1.jpg',
+    //     'A sleek electric sedan with impressive range and acceleration.',
+    //     'Tunis',
+    //     100.00,
+    //   ),
+    //   Car(
+    //     'BMW X5',
+    //     '2022',
+    //     'lib/images/car2.jpg',
+    //     'Luxury SUV with a comfortable ride and modern features.',
+    //     'Sfax',
+    //     150.00,
+    //   ),
+    //   Car(
+    //     'Mercedes Model S',
+    //     '2023',
+    //     'lib/images/car3.jpg',
+    //     'A sleek electric sedan with impressive range and acceleration.',
+    //     'Gabes',
+    //     100.00,
+    //   ),
   ];
 
   @override

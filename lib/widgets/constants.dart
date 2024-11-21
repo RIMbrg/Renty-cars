@@ -48,7 +48,7 @@ const String tProfileImage = "assets/ProfileImage.jpeg";
 //************Colors **************************************************** */
 const tAccentColor = Color(0xff2972FF);
 const tPrimaryColor = Color(0xFF243870);
-const tSecondaryColor = Colors.deepOrange;
+const tSecondaryColor = Color(0xFFFF5722);
 
 const tWhiteColor = Colors.white;
 const tDarkColor = Color(0xFF000000);

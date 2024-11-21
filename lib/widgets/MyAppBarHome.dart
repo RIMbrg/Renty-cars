@@ -5,8 +5,8 @@ import 'package:renty_cars/widgets/constants.dart';
 import 'package:vector_math/vector_math.dart' as math;
 //  import 'package:flutter_a/Screens/utils.dart';
 
-class MyAppBar2 extends StatelessWidget implements PreferredSizeWidget {
-  const MyAppBar2({super.key, required this.pageTitle, this.iconeName});
+class MyAppBarHome extends StatelessWidget implements PreferredSizeWidget {
+  const MyAppBarHome({super.key, required this.pageTitle, this.iconeName});
 
   final String pageTitle;
   final IconData? iconeName;
@@ -19,13 +19,19 @@ class MyAppBar2 extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
+      // leading: const BackScreen(),
+
       elevation: 0.0,
       backgroundColor: Colors.white,
-      toolbarHeight: 80.0,
+      // toolbarHeight: 80.0,
+
       title: Row(children: [
         const Icon(Icons.location_on, color: tAccentColor),
         const SizedBox(width: 10),
-        Text(pageTitle, style: TextStyle(color: Colors.black)),
+        Text(pageTitle, style: TextStyle(color: tPrimaryColor)),
+      ]),
+      centerTitle: true,
+      actions: [
         IconButton(
             onPressed: () async {
               await FirebaseAuth.instance.signOut();
@@ -33,23 +39,7 @@ class MyAppBar2 extends StatelessWidget implements PreferredSizeWidget {
                   .pushNamedAndRemoveUntil("login", (route) => false);
             },
             icon: const Icon(Icons.exit_to_app))
-      ]),
-    );
-  }
-}
-
-class BackScreen extends StatelessWidget {
-  const BackScreen({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return IconButton(
-      onPressed: () {
-        Navigator.pop(context);
-      },
-      icon: const Icon(Icons.keyboard_arrow_left_rounded),
-      iconSize: 30,
-      color: Colors.black,
+      ],
     );
   }
 }

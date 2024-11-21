@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 import 'package:renty_cars/models/Car.dart';
-import 'package:renty_cars/pages/FavoriteProvider/FavoriteButton.dart';
-import 'package:renty_cars/widgets/ButtonFavorite.dart';
+import 'package:renty_cars/widgets/FavoriteButton.dart';
+import 'package:renty_cars/widgets/OldWidgets/ButtonFavorite.dart';
 import 'package:renty_cars/widgets/constants.dart';
 
 class CarCard extends StatefulWidget {
@@ -32,7 +32,7 @@ class _CarCardState extends State<CarCard> {
             children: [
               Container(
                 width: double.infinity,
-                height: 150.0,
+                height: 200.0,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(8.0),
                   color: Colors.grey.shade200,
@@ -43,67 +43,75 @@ class _CarCardState extends State<CarCard> {
                 ),
               ),
               const SizedBox(height: 8.0),
-              // Padding(
-              //   padding: const EdgeInsets.symmetric(horizontal: 10),
-              //   child:
-
-              // ),
-
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-//**************name of the car
-                    Text(
-                      widget.car.name!,
-                      style: const TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 20.0,
-                          color: tPrimaryColor),
-                      overflow: TextOverflow.ellipsis,
-                    ),
-                    const SizedBox(height: 8.0),
-
-                    //**************** Location of the car
-
-                    Row(
-                      children: [
-                        const Icon(
-                          Icons.location_on,
-                          color: Colors.grey,
-                        ),
-                        Text(
-                          widget.car.carLocation!,
-                          style: const TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 16.0,
-                              color: Colors.grey),
-                          overflow: TextOverflow.ellipsis,
-                        )
-                      ],
-                    ),
-                    const SizedBox(height: 8.0),
-//**************  Price of the car
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          "${widget.car.rentalPrice}DT per day ",
-                          style: const TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 22.0,
-                              color: tAccentColor),
-                          overflow: TextOverflow.ellipsis,
-                        ),
-                        FavoriteButton(car: widget.car),
-                        // ButtonFavorite(),
-                      ],
-                    )
-                  ],
-                ),
-              )
+              CarPreDetails(widget.car),
             ]),
+      ),
+    );
+  }
+}
+
+class CarPreDetails extends StatelessWidget {
+  const CarPreDetails(this.car, {super.key});
+
+  final Car car;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 8.0),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              //**************name of the car
+              Text(
+                car.name!,
+                style: const TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 20.0,
+                    color: tPrimaryColor),
+                overflow: TextOverflow.ellipsis,
+              ),
+              //**************** Location of the car
+              Row(
+                children: [
+                  Text(
+                    car.carLocation!,
+                    style: const TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 20.0,
+                        color: tSecondaryColor),
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                  const Icon(
+                    Icons.location_on,
+                    color: tSecondaryColor,
+                  ),
+                ],
+              ),
+            ],
+          ),
+
+          const SizedBox(height: 5.0),
+//**************  Price of the car
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                "${car.rentalPrice}DT per day ",
+                style: const TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 20.0,
+                    color: tAccentColor),
+                overflow: TextOverflow.ellipsis,
+              ),
+              FavoriteButton(car: car),
+              // ButtonFavorite(),
+            ],
+          )
+        ],
       ),
     );
   }

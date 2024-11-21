@@ -7,9 +7,10 @@ import 'package:provider/provider.dart';
 import 'package:renty_cars/pages/FavoriteProvider/FavoriteMain.dart';
 import 'package:renty_cars/pages/FavoriteProvider/FavoriteProvider.dart';
 import 'package:renty_cars/pages/HomePage.dart';
-import 'package:renty_cars/pages/Login.dart';
+
+import 'package:renty_cars/pages/LoginPage.dart';
 import 'package:renty_cars/pages/OnboardingPage.dart';
-import 'package:renty_cars/pages/SignUp.dart';
+import 'package:renty_cars/pages/SignUpPage.dart';
 import 'package:renty_cars/pages/TestCode/DetailsScreen.dart';
 import 'package:renty_cars/pages/TestCode/HomeScreen.dart';
 import 'package:renty_cars/widgets/NavBar.dart';
@@ -49,11 +50,11 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
 
-      home: SignUp(),
+      home: OnboardingPage(),
       // home: FirebaseAuth.instance.currentUser == null ? Login() : Home(),
       routes: {
-        "signup": (context) => SignUp(),
-        "login": (context) => Login(),
+        "signup": (context) => SignUpPage(),
+        "login": (context) => LoginPage(),
         "home": (context) => HomePage(),
         "navbar": (context) => NavBarPage(),
       },
