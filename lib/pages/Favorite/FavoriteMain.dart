@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:renty_cars/widgets/FavoriteButton.dart';
-import 'package:renty_cars/pages/FavoriteProvider/FavoritePage.dart';
-import 'package:renty_cars/pages/FavoriteProvider/FavoriteProvider.dart';
+import 'package:renty_cars/pages/Favorite/FavoriteButton.dart';
+import 'package:renty_cars/pages/Favorite/FavoritePage.dart';
+import 'package:renty_cars/pages/Favorite/FavoriteProvider.dart';
+
 import 'package:renty_cars/models/Car.dart';
 // Import the FavoriteButton widget
 

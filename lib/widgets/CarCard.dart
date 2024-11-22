@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:renty_cars/models/Car.dart';
-import 'package:renty_cars/widgets/FavoriteButton.dart';
+import 'package:renty_cars/pages/Favorite/FavoriteButton.dart';
 import 'package:renty_cars/widgets/OldWidgets/ButtonFavorite.dart';
 import 'package:renty_cars/widgets/constants.dart';
 

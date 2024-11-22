@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:renty_cars/pages/CarDetailsPage.dart';
-import 'package:renty_cars/pages/FavoriteProvider/FavoriteProvider.dart';
+import 'package:renty_cars/pages/Favorite/FavoriteProvider.dart';
 import 'package:renty_cars/widgets/CarCard.dart';
 import 'package:renty_cars/widgets/MyAppBar.dart';
 import 'package:renty_cars/widgets/MyAppBarHome.dart';
