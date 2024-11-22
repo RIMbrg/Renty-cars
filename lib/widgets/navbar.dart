@@ -1,7 +1,7 @@
 // ignore_for_file: prefer_const_constructors, file_names
 
 import 'package:flutter/material.dart';
-import 'package:renty_cars/pages/FavoriteProvider/FavoritePage.dart';
+import 'package:renty_cars/pages/Favorite/FavoritePage.dart';
 import 'package:renty_cars/pages/HomePage.dart';
 
 import 'package:renty_cars/pages/LoginPage.dart';
@@ -33,9 +33,9 @@ class _NavBarPageState extends State<NavBarPage> {
     pageList.add(HomeScreen());
     pageList.add(OnboardingPage());
     pageList.add(SignUpPage());
-    // // pageList.add(SignUpPage());
+    // // // pageList.add(SignUpPage());
     pageList.add(LoginPage());
-    // // pageList.add(LoginPage());
+    // // // pageList.add(LoginPage());
 
     super.initState();
   }

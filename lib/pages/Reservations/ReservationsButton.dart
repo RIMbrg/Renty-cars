@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:renty_cars/models/Car.dart';
 import 'package:renty_cars/pages/Favorite/FavoriteProvider.dart';
+import 'package:renty_cars/pages/Reservations/ReservationsProvider.dart';
 
 class FavoriteButton extends StatelessWidget {
   final Car car; // The car to be added/removed from favorites
@@ -10,11 +11,11 @@ class FavoriteButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final favoritesProvider =
-        context.watch<FavoritesProvider>(); // Watch the favorites list
+    final reservationsProvider =
+        context.watch<ReservationsProvider>(); // Watch the reservations list
 
-    // Determine if the car is already in the favorites list
-    bool isFavorite = favoritesProvider.favorites.contains(car);
+    // Determine if the car is already in the reservations list
+    bool isFavorite = reservationsProvider.reservations.contains(car);
 
     return IconButton(
       icon: Icon(
@@ -24,9 +25,9 @@ class FavoriteButton extends StatelessWidget {
       onPressed: () {
         // Toggle favorite status (add or remove car)
         if (isFavorite) {
-          favoritesProvider.removeFavorite(car);
+          reservationsProvider.removeFavorite(car);
         } else {
-          favoritesProvider.addFavorite(car);
+          reservationsProvider.addFavorite(car);
         }
       },
     );

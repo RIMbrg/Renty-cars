@@ -1,5 +1,6 @@
 import 'dart:js';
 
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -14,6 +15,7 @@ class ProfilePage extends StatelessWidget {
   Widget build(BuildContext context) {
     var isDark = MediaQuery.of(context).platformBrightness == Brightness.dark;
     return Scaffold(
+      backgroundColor: tWhiteColor,
       appBar: MyAppBar(
         pageTitle: "Profile",
         iconeName: isDark ? Icons.light_mode : Icons.dark_mode,
@@ -42,12 +44,12 @@ class ProfilePage extends StatelessWidget {
                       child: ClipRRect(
                           borderRadius: BorderRadius.circular(50),
                           child: const Image(
-                            image: AssetImage(tProfileImage),
+                            image: AssetImage('lib/images/user.png'),
                           ))),
                   // const SizedBox(height: 10),
                   Column(
                     children: [
-                      Text("Asma Alaya",
+                      Text("Foulen Fouleni",
                           style: Theme.of(context).textTheme.headlineMedium),
                       Text(tProfielSubHeading,
                           style: Theme.of(context).textTheme.bodyMedium),
@@ -95,10 +97,24 @@ class ProfilePage extends StatelessWidget {
                   title: "Community", icon: Icons.people_alt, onPress: () {}),
               ProfileMenuWidget(
                   title: "logout",
-                  icon: Icons.logout,
-                  onPress: () {},
+                  // icon: Icons.logout,
+                  // onPress: () {},
+                  icon: Icons.exit_to_app,
+                  onPress: () async {
+                    await FirebaseAuth.instance.signOut();
+                    Navigator.of(context)
+                        .pushNamedAndRemoveUntil("login", (route) => false);
+                  },
                   textColor: Colors.red,
                   endIcon: false),
+
+              // IconButton(
+              //    onPressed: () async {
+              //     await FirebaseAuth.instance.signOut();
+              //     Navigator.of(context)
+              //     .pushNamedAndRemoveUntil("login", (route) => false);
+              //     },
+              //     icon: const Icon(Icons.exit_to_app))
             ],
           ),
         ),

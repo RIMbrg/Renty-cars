@@ -76,6 +76,7 @@ flutter:
     - lib/images/background.png
     - lib/images/logo_renty_car.png
     - lib/images/Renty-logo.jpg
+    - lib/images/user.png
 
 
 

@@ -4,8 +4,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:provider/provider.dart';
-import 'package:renty_cars/pages/FavoriteProvider/FavoriteMain.dart';
-import 'package:renty_cars/pages/FavoriteProvider/FavoriteProvider.dart';
+// import 'package:renty_cars/pages/Favorite/FavoriteMain.dart';
+import 'package:renty_cars/pages/Favorite/FavoriteProvider.dart';
 import 'package:renty_cars/pages/HomePage.dart';
 
 import 'package:renty_cars/pages/LoginPage.dart';
@@ -25,6 +25,7 @@ void main() async {
           projectId: "renty-cars-44720",
           messagingSenderId: ''));
   //**************Modified by Asma */
+  // *************The provider of the favorite page
   runApp(
     ChangeNotifierProvider(
       create: (context) => FavoritesProvider(),
